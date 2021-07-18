@@ -122,6 +122,7 @@ main{
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
+  font-size: 20px;
 }
 
 .left{
@@ -141,7 +142,7 @@ main{
 label{
   padding: 0px 0px;
   font-family: 'PT Sans', sans-serif;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 700;
   -webkit-text-stroke-width: 0.3px;
   -webkit-text-stroke-color: rgb(186, 0, 211);
@@ -208,5 +209,12 @@ label{
   font-weight: 400;
   /* /* text-align: left; */
 } 
+
+input[type="radio"] {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
+  transform: scale(1.5);
+  margin: 5px 10px 5px 20px;
+}
 
 
