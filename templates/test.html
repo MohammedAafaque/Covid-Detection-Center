@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/main.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      /* box-sizing:border-box; */
+    }
+
+    .header {
+      height: 100vh;
+      width: auto;
+    }
+
+    .video-background {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <video autoplay loop class="video-background" muted plays-inline>
+    <source src="../static/Covid.mp4" type="video/mp4">
+  </video>
+  <section class="header">
+    <main>
+      <div class="container">
+        <div class="welcomeMessage">
+          <div class="welcome"><span class="welcome1">Welcome to</span><br><span class="welcome2">Covid</span> <span
+              class="welcome3">Detection</span> <span class="welcome4">Center</span>
+          </div><br>
+          <br>
+          <div class="brief">
+            The novel corona virus (COVID-19) poses a threat to global health.
+            This tool will help you decide if you have to seek testing or medical care if you or someone you know are
+            experiencing COVID-19 related symptoms.
+            <br><br>
+            <span class="disclaimer">Disclaimer:</span> This tool provides results with an <span
+              class="accuracy">accuracy of 97%</span>.<br>
+            Seek immediate medical attention if you have serious symptoms.
+          </div><br><br>
+          <div class="guidelines">
+            <ul><span class="guideline">Guidelines:</span> <br>
+              <li>Fill in the below given form to the best of your knowledge of the sympotoms that you are experiencing
+                and the medical conditions that you already have.</li>
+              <li>For sympotoms that you aren't sure of, mark "Yes" only if you are experiencing the symptom more than
+                40% of its severity for the most optimum prediciton.</li>
+              <li>If you aren't sure about the external factors, mark "No".</li>
+            </ul>
+          </div>
+        </div>
+        
+        <form action="/predict" method="POST">
+          <div class="formBox">
+            <div class="left">
+              <label for="breathingproblems">1) Breathing Problems</label><br>
+              <input type="text" name="breathingproblems"><br>
+              <label for="fever">2) Fever</label><br>
+              <input type="text" name="fever"><br>
+              <label for="drycough">3) Dry Cough</label><br>
+              <input type="text" name="drycough"><br>
+              <label for="sorethroat">4) Sore Throat</label><br>
+              <input type="text" name="sorethroat"><br>
+              <label for="runningnose">5) Running Nose</label><br>
+              <input type="text" name="runningnose"><br>
+              <label for="asthma">6) Asthma</label><br>
+              <input type="text" name="asthma"><br>
+              <label for="chroniclungdisease">7) Chronic Lung Disease</label><br>
+              <input type="text" name="chroniclungdisease"><br>
+              <label for="headache">8) Headache</label><br>
+              <input type="text" name="headache"><br>
+              <label for="heartdisease">9) Heart Disease</label><br>
+              <input type="text" name="heartdisease"><br>
+              <label for="diabetes">10) Diabetes</label><br>
+              <input type="text" name="diabetes"><br>
+            </div>
+            <div class="right">
+              <label for="hypertension">11) Hyper Tension</label><br>
+              <input type="text" name="hypertension"><br>
+              <label for="fatigue">12) Fatigue</label><br>
+              <input type="text" name="fatigue"><br>
+              <label for="gastrointestinal">13) Gastrointestinal</label><br>
+              <input type="text" name="gastrointestinal"><br>
+              <label for="abroadtravel">14) Abroad Travel</label><br>
+              <input type="text" name="abroadtravel"><br>
+              <label for="contact">15) Contact with COVID patient</label><br>
+              <input type="text" name="contact"><br>
+              <label for="largegathering">16) Attended Large Gathering</label><br>
+              <input type="text" name="largegathering"><br>
+              <label for="publicplaces">17) Visited Public Exposed Places</label><br>
+              <input type="text" name="publicplaces"><br>
+              <label for="familypublicplaces">18) Family working in Exposed Places</label><br>
+              <input type="text" name="familypublicplaces"><br>
+              <label for="mask">19) Wearing Mask At All Times</label><br>
+              <input type="text" name="mask"><br>
+              <label for="sanitize">20) Sanitization from Market</label><br>
+              <input type="text" name="sanitize"><br>
+            </div>
+          </div>
+          <div class="button">
+            <button type="submit" class="btn btn-secondary btn-lg btn-block btn-light">Submit</button>
+          </div>
+        </form>
+        <div class="result">
+          <br>
+          <h4>{{pred}}</h4>
+        </div>
+      </div>
+    </main>
+  </section>
+</body>
+
+</html>

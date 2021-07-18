@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/main.css">
+    <style>*{
+      margin: 0;
+      padding: 0;
+      /* box-sizing:border-box; */
+      }
+      .header{
+      height: 100vh;
+      width: auto;
+      }
+
+      .video-background{
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      }</style>
+    <title>Covid Detection Center</title>
+</head>
+<body>
+  <section class="header">
+    <video autoplay loop class="video-background" muted plays-inline>
+      <source src={{url_for('static', filename="Covid.mp4")}} type="video/mp4"> 
+    </video>
+    <main>
+      <div class="container">
+        <div class="welcomeMessage">
+          <div class="negative">
+              {{pred}}
+          </div>
+          <div class="guidelines">
+            <ul><span class="guideline">Measures to be taken:</span> <br>
+              <li>You still need to self-isolate for 10 full days if you get a negative test result and: <br>
+                  -someone you live with has tested positive <br>
+                  -someone you live with has symptoms and has not had a test <br>
+                  -someone you've been in close contact with has tested positive
+              </li>
+              <li>You may have tested negative but there is a possibilty that you are a carrier if someone around you has tested positive. So, please continue to take precautions.</li>
+              <li>If you still feel unwell after a negative test, stay at home until you're feeling better.</li>
+            </ul>
+          </div>
+          <div class="note">
+            Our tool is 97% accurate.
+            Please do consult a professional and take the RT-PCR/Antigen tests.
+          </div>
+        </div>
+        
+      </div>
+    </main>
+  </section>
+</body>
+</html>
